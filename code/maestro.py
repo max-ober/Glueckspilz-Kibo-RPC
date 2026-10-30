@@ -43,7 +43,7 @@ class Maestro:
                 rospy.logwarn('No checkpoints found in payload')
                 return
             
-            rospy.loginfo(f"Successfully loaded Loading {len(checkpoints)} checkpoints")
+            rospy.loginfo(f"Successfully loaded {len(checkpoints)} checkpoints")
             for cp in checkpoints:
              #rospy.loginfo(f"=> Checkpoint {cp.checkpoint_id}: position: {cp.position}, attitude: {cp.attitude.quaternion}, marker: {cp.marker_pose}, ")
              #rospy.loginfo(json.dumps(cp, indent=2))
