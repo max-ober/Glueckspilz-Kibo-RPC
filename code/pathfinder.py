@@ -6,7 +6,7 @@ if __name__ == '__main__':
     from random import randint
     from timeit import default_timer as timer
 
-def solve_tsp(p: list[dict], s: dict, t: dict):
+def solve_tsp(p: list[dict], s: dict, t: dict) -> tuple[float, list[int]]:
     all_nodes = deepcopy(p)
     all_nodes.insert(0, s)
     all_nodes.append(t)
