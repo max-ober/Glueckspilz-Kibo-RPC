@@ -14,7 +14,7 @@ def solve_tsp(p: list[dict], s: dict, t: dict) -> tuple[float, list[int]]:
     m = create_dist_matrix(all_nodes)
 
     #Held-Karp
-    #modified version of https://github.com/carl-olin/held-karp/blob/master/held-karp.py
+    #heavily modified version of https://github.com/carl-olin/held-karp/blob/master/held-karp.py
     storage = {}
     for k in range(1, n):
         storage[(1 << k, k)] = (m[0, k], 0)
@@ -27,8 +27,7 @@ def solve_tsp(p: list[dict], s: dict, t: dict) -> tuple[float, list[int]]:
                 prev = bits & ~(1 << k)
                 re = []
                 for d in subset:
-                    if d == 0 or d == k:
-                        continue
+                    if d == 0 or d == k: continue
                     re.append((storage[(prev, d)][0] + m[d, k], d))
                 storage[(bits, k)] = min(re)
     bits = (2**n - 1) - 1
@@ -37,7 +36,7 @@ def solve_tsp(p: list[dict], s: dict, t: dict) -> tuple[float, list[int]]:
         res.append((storage[(bits, k)][0] + m[k, 0], k))
     distance, parent = min(res)
     path = []
-    for i in range(n - 1):
+    for _ in range(n - 1):
         path.append(parent)
         new_bits = bits & ~(1 << parent)
         _, parent = storage[(bits, parent)]
@@ -45,8 +44,7 @@ def solve_tsp(p: list[dict], s: dict, t: dict) -> tuple[float, list[int]]:
 
     path.append(0)
     id_path = []
-    r_path = list(reversed(path))
-    for n in r_path:
+    for n in list(reversed(path)):
         id_path.append(all_nodes[n]["checkpoint_id"])
 
     return distance, id_path
