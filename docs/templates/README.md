@@ -4,13 +4,36 @@ This directory contains the common report and presentation templates used by Tea
 
 The templates were provided within the *Praktikum Space Informatics and Satellite Systems* and serve as the common basis for project documentation and presentations.
 
-## Available Templates
+---
 
-- `latex/` – LaTeX report template
-- `presentation/` – PowerPoint presentation template
+## LaTeX Report Template
 
-## Usage
+Location:
 
-The original template files should remain available as reusable project templates.
+`docs/templates/latex/`
 
-For individual reports or presentations, create a working copy instead of modifying the original template files directly.
+The LaTeX template contains the complete report structure, including:
+
+- `main.tex`
+- appendix files
+- bibliography files
+- glossary and acronym definitions
+- supporting images
+
+The original directory structure should be preserved because the main document references files from the included subdirectories.
+
+### Structure
+
+```text
+latex/
+├── main.tex
+├── appendix/
+│   ├── appendix.tex
+│   └── project_management.tex
+├── bib/
+│   └── bibliography.bib
+├── glossaries/
+│   ├── acronyms.tex
+│   └── glossary.tex
+└── pics/
+    └── research_question.PNG
